@@ -15,7 +15,7 @@ func (client *Client) Authenticate(login string, password string) (err error) {
 	}
 	payload := data.Encode()
 
-	request, _ := http.NewRequest("POST", client.host,
+	request, _ := http.NewRequest("POST", client.Host,
 		strings.NewReader(payload))
 	request.Header.Add("Content-Type", "application/x-www-form-urlencoded")
 

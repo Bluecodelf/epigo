@@ -5,72 +5,72 @@ import (
 )
 
 type UserInfo struct {
-	value            string `json:"value"`
-	isVisible        bool   `json:"public"`
-	isVisibleByAdmin bool   `json:"adm"`
+	Value            string `json:"value"`
+	IsVisible        bool   `json:"public"`
+	IsVisibleByAdmin bool   `json:"adm"`
 }
 
 type UserGroup struct {
-	name  string  `json:"name"`
-	title string  `json:"title"`
-	size  float64 `json:"count"`
+	Name  string  `json:"name"`
+	Title string  `json:"title"`
+	Size  float64 `json:"count"`
 }
 
 type UserGPA struct {
-	value string `json:"gpa"`
-	cycle string `json:"cycle"`
+	Value string `json:"gpa"`
+	Cycle string `json:"cycle"`
 }
 
 // Average Grade Point Average. This is some next level shit.
 type UserAverageGPA struct {
-	value string `json:"gpa_average"`
-	cycle string `json:"cycle"`
+	Value string `json:"gpa_average"`
+	Cycle string `json:"cycle"`
 }
 
 type UserNetsoul struct {
-	hoursActive        float64 `json:"active"`
-	hoursIdle          float64 `json:"idle"`
-	hoursActiveOutside float64 `json:"out_active"`
-	hoursIdleOutside   float64 `json:"out_idle"`
-	logNorm            float64 `json:"nslog_norm"`
+	HoursActive        float64 `json:"active"`
+	HoursIdle          float64 `json:"idle"`
+	HoursActiveOutside float64 `json:"out_active"`
+	HoursIdleOutside   float64 `json:"out_idle"`
+	LogNorm            float64 `json:"nslog_norm"`
 }
 
 type User struct {
-	login              string              `json:"login"`
-	fullName           string              `json:"title"`
-	email              string              `json:"internal_email"`
-	lastName           string              `json:"lastname"`
-	firstName          string              `json:"firstname"`
-	userInfo           map[string]UserInfo `json:"userinfo"`
-	avatarURL          string              `json:"picture"`
-	promotion          float64             `json:"promo"`
-	semester           float64             `json:"semester"`
-	uid                float64             `json:"uid"`
-	gid                float64             `json:"gid"`
-	location           string              `json:"location"`
-	closed             bool                `json:"close"`
-	promoID            string              `json:"id_promo"`
-	historyID          string              `json:"id_history"`
-	courseCode         string              `json:"course_code"`
-	semesterCode       string              `json:"semester_code"`
-	schoolID           string              `json:"school_id"`
-	schoolCode         string              `json:"school_code"`
-	schoolTitle        string              `json:"school_title"`
-	previousPromoID    string              `json:"old_id_promo"`
-	previousLocationId string              `json:"old_id_location"`
-	studentYear        string              `json:"studentyear"`
-	isAdmin            bool                `json:"admin"`
-	isEditable         bool                `json:"editable"`
-	groups             []UserGroup         `json:"groups"`
-	credits            float64             `json:"credits"`
-	gpa                []UserGPA           `json:"gpa"`
-	averageGPA         []UserAverageGPA    `json:"average_gpa"`
-	spices             float64             `json:"spice"`
-	netsoul            UserNetsoul         `json:"nsstat"`
+	Login              string              `json:"login"`
+	FullName           string              `json:"title"`
+	Email              string              `json:"internal_email"`
+	LastName           string              `json:"lastname"`
+	FirstName          string              `json:"firstname"`
+	UserInfo           map[string]UserInfo `json:"userinfo"`
+	AvatarURL          string              `json:"picture"`
+	Promotion          float64             `json:"promo"`
+	Semester           float64             `json:"semester"`
+	UID                float64             `json:"uid"`
+	GID                float64             `json:"gid"`
+	Location           string              `json:"location"`
+	Closed             bool                `json:"close"`
+	PromoID            string              `json:"id_promo"`
+	HistoryID          string              `json:"id_history"`
+	CourseCode         string              `json:"course_code"`
+	SemesterCode       string              `json:"semester_code"`
+	SchoolID           string              `json:"school_id"`
+	SchoolCode         string              `json:"school_code"`
+	SchoolTitle        string              `json:"school_title"`
+	PreviousPromoID    string              `json:"old_id_promo"`
+	PreviousLocationId string              `json:"old_id_location"`
+	StudentYear        float64             `json:"studentyear"`
+	IsAdmin            bool                `json:"admin"`
+	IsEditable         bool                `json:"editable"`
+	Groups             []UserGroup         `json:"groups"`
+	Credits            float64             `json:"credits"`
+	GPA                []UserGPA           `json:"gpa"`
+	AverageGPA         []UserAverageGPA    `json:"average_gpa"`
+	Spices             float64             `json:"spice"`
+	Netsoul            UserNetsoul         `json:"nsstat"`
 }
 
 func (client *Client) GetUser(login string) (*User, error) {
-	url := client.host + "/user/" + login + "/?format=json"
+	url := client.Host + "/user/" + login + "/?format=json"
 	data, err := client.GetData(url)
 	if err != nil {
 		return nil, err

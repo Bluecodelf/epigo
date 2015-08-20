@@ -7,7 +7,7 @@ import (
 )
 
 type Client struct {
-	host string
+	Host string
 	http http.Client
 }
 
